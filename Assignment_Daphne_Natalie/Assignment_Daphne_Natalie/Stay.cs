@@ -14,6 +14,8 @@ namespace Assignment_Daphne_Natalie
         public DateTime CheckOutDate { get; set; }
 
         public List<Room> RoomList { get; set; }
+        = new List<Room>();
+
 
         public Stay()
         {
@@ -26,16 +28,15 @@ namespace Assignment_Daphne_Natalie
             CheckOutDate = checkOutDate;
         }
 
-        public AddRoom(Room)
+        public void AddRoom(Room room)
         {
-            int TotalRoom = // 0 + no. of rooms they want
-            return TotalRoom;
+            RoomList.Add(room);
         }
 
-        public double CalculateTotal()
+        public double CalculateTotal()                                                                                                
         {
-            double Total = // idk
-            return Total;
+            double total = checkOutDate - checkInDate
+            return total;
         }
 
         public override string ToString()
