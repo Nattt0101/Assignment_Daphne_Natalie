@@ -6,7 +6,35 @@ using System.Threading.Tasks;
 
 namespace Assignment_Daphne_Natalie
 {
-    internal class Membership
+    class Membership : Guest
     {
+        public string Status { get; set; }
+
+        public int Points { get; set; }
+
+        public Membership()
+        {
+
+        }
+
+        public Membership(string s, int p)
+        {
+            Status = s;
+            Points = p;
+        }
+
+        public void EarnPoints(double points)
+        {
+
+        }
+
+        public bool RedeemPoints(int p)
+        {
+            return 
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "Status: " + Status + "Points: " + Points;
+        }
     }
-}
