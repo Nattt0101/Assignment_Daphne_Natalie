@@ -1,0 +1,10 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Assignment_Daphne_Natalie
+build_property.ProjectDir = C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\
