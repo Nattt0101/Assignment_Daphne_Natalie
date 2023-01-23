@@ -1,0 +1,5 @@
+C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.csproj.AssemblyReference.cache
+C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.AssemblyInfoInputs.cache
+C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.AssemblyInfo.cs
+C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.csproj.CoreCompileInputs.cache
