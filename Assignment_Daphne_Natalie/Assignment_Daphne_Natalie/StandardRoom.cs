@@ -14,7 +14,8 @@ namespace Assignment_Daphne_Natalie
         public StandardRoom(Room r, Room b, Room d, Room a): base(r,b,d,a)                                                                    
         {
 
-        }   
+        }
+
 
         public override double CalculateCharges()
         {

@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//========================================================== 
+// Student Number : S10242410
+// Student Name :  Natalie Peh
+//==========================================================
 namespace Assignment_Daphne_Natalie
 {
     abstract class Room

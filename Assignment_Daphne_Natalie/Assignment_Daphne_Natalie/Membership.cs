@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//========================================================== 
+// Student Number : S10242410
+// Student Name :  Natalie Peh
+//==========================================================
 namespace Assignment_Daphne_Natalie
 {
     class Membership : Guest
@@ -30,7 +34,7 @@ namespace Assignment_Daphne_Natalie
 
         public bool RedeemPoints(int p)
         {
-            if (p>=100)
+            if (p >= 100)
             {
                 return true;
             }
@@ -45,3 +49,4 @@ namespace Assignment_Daphne_Natalie
             return base.ToString() + "Status: " + Status + "Points: " + Points;
         }
     }
+}

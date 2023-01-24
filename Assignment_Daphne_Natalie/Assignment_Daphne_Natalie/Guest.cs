@@ -4,10 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//========================================================== 
+// Student Number : S10242410
+// Student Name :  Natalie Peh
+//==========================================================
+
 namespace Assignment_Daphne_Natalie
 {
     class Guest
     {
+        private string name;
+        private string passportnum;
+        private string hotelstay;
+        private string member;
+        private string ischeckedin;
+
         public string Name { get; set; }
 
         public string PassportNum { get; set; }
@@ -30,6 +41,7 @@ namespace Assignment_Daphne_Natalie
             HotelStay = h;
             Member = m;
         }
+
 
         public override string ToString()
         {
