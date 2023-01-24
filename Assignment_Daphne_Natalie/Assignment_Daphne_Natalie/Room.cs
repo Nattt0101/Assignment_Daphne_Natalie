@@ -29,6 +29,10 @@ namespace Assignment_Daphne_Natalie
             IsAvail = a;
         }
 
+        protected Room(Room r, Room b, Room d, Room a)
+        {
+        }
+
         public abstract double CalculateCharges();
 
         public override string ToString()
