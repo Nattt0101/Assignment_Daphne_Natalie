@@ -30,7 +30,14 @@ namespace Assignment_Daphne_Natalie
 
         public bool RedeemPoints(int p)
         {
-            return 
+            if (p>=100)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override string ToString()

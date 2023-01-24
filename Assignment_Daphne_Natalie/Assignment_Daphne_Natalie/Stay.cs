@@ -33,10 +33,9 @@ namespace Assignment_Daphne_Natalie
             RoomList.Add(room);
         }
 
-        public double CalculateTotal()                                                                                                
+        public double CalculateTotal()                                                                                            
         {
-            double total = checkOutDate - checkInDate
-            return total;
+            return 0.0;
         }
 
         public override string ToString()
