@@ -117,3 +117,24 @@ for (int i = 0; i < rlines.Length; i++)
         Console.WriteLine(rline[0] + "\t \t" + rline[1] + "\t \t" + rline[2] + "\t \t \t" + rline[3]);
     }
 }
+
+while (true)
+{
+    try
+    {
+        Console.WriteLine("\n------------- MENU --------------");
+        Console.WriteLine("[1] List all guests\r\n[2] List all available rooms\r\n[3] Register new guest\r\n[4] Check-in guest\r\n[5] Display stay details of a guest\r\n[6] Extend number of days of stay\r\n[0] Exit");
+        Console.WriteLine("---------------------------------");
+        Console.Write("Enter Your Option: ");
+        int option = int.Parse(Console.ReadLine());
+        break;
+    }
+
+
+
+    catch (FormatException ex)
+    {
+        Console.WriteLine(ex.Message);
+        Console.WriteLine("Please enter a numeric value!");
+    }
+}
