@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 // Student Number : S10242410
 // Student Name :  Natalie Peh
 //==========================================================
+
+//========================================================== 
+// Student Number : S10243748
+// Student Name : Daphne Yap
+//==========================================================
+
 namespace Assignment_Daphne_Natalie
 {
     class Stay

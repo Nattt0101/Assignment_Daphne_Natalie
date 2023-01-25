@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 // Student Name :  Natalie Peh
 //==========================================================
 
+//========================================================== 
+// Student Number : S10243748
+// Student Name : Daphne Yap
+//==========================================================
+
 namespace Assignment_Daphne_Natalie
 {
     class Guest
