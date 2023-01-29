@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.IO;
+
 using Assignment_Daphne_Natalie;
 
 //========================================================== 
@@ -17,11 +18,10 @@ using Assignment_Daphne_Natalie;
 // Student Name : Daphne Yap
 //==========================================================
 
-string[] slines = File.ReadAllLines("Stays.csv");
+string[] slines = File.ReadAllLines("Stays.csv"); // Read File
 
-
-List<Guest> guestList = new List<Guest>();
-List<Room> roomList = new List<Room>();
+List<Guest> guestList = new List<Guest>(); // Create New List For Guests
+List<Room> roomList = new List<Room>(); // Create New List For Rooms
 
 /*
 void DisplayGuests()
@@ -75,66 +75,96 @@ foreach (Room room in roomList)
 }
 */
 
-
-string[] glines = File.ReadAllLines("Guests.csv");
-
-for (int i = 0; i < glines.Length; i++)
+// Method To Display Guests
+void DisplayGuests()
 {
-    string[] gline = glines[i].Split(',');//get each line
+    string[] glines = File.ReadAllLines("Guests.csv"); // Read File
 
-    if (i == 0)
+    for (int i = 0; i < glines.Length; i++)
     {
-        Console.WriteLine(gline[0] + "\t" + gline[1] + "\t" + gline[2] + "\t" + gline[3]);
-    }
+        string[] gline = glines[i].Split(','); // To Get Each Line
 
-    else
-    {
-        Console.WriteLine(gline[0] + "\t" + gline[1] + "\t" + gline[2] + "\t \t \t" + gline[3]);
-    }
+        if (i == 0)
+        {
+            Console.WriteLine(gline[0] + "\t" + gline[1] + "\t" + gline[2] + "\t" + gline[3]);
+        }
 
+        else
+        {
+            Console.WriteLine(gline[0] + "\t" + gline[1] + "\t" + gline[2] + "\t \t \t" + gline[3]);
+        }
+
+    }
 }
 
-Console.WriteLine("\n");
+// Console.WriteLine("\n");
 
-string[] rlines = File.ReadAllLines("Rooms.csv");
-
-for (int i = 0; i < rlines.Length; i++)
+// Method To Display Rooms
+void DisplayRooms()
 {
-    string[] rline = rlines[i].Split(',');//get each line
+    string[] rlines = File.ReadAllLines("Rooms.csv"); // Read File
 
-    if (i == 0)
+    for (int i = 0; i < rlines.Length; i++)
     {
-        Console.WriteLine(rline[0] + "\t" + rline[1] + "\t" + rline[2] + "\t" + rline[3]);
-    }
+        string[] rline = rlines[i].Split(','); // To Get Each Line
 
-    else if (i!=0 && i<8)
-    {
-        Console.WriteLine(rline[0] + "\t" + rline[1] + "\t \t" + rline[2] + "\t \t \t" + rline[3]);
-    }
+        if (i == 0)
+        {
+            Console.WriteLine(rline[0] + "\t" + rline[1] + "\t" + rline[2] + "\t" + rline[3]);
+        }
 
-    else
-    {
-        Console.WriteLine(rline[0] + "\t \t" + rline[1] + "\t \t" + rline[2] + "\t \t \t" + rline[3]);
+        else if (i != 0 && i < 8)
+        {
+            Console.WriteLine(rline[0] + "\t" + rline[1] + "\t \t" + rline[2] + "\t \t \t" + rline[3]);
+        }
+
+        else
+        {
+            Console.WriteLine(rline[0] + "\t \t" + rline[1] + "\t \t" + rline[2] + "\t \t \t" + rline[3]);
+        }
     }
 }
 
 while (true)
 {
+    // Display Menu
     try
     {
         Console.WriteLine("\n------------- MENU --------------");
         Console.WriteLine("[1] List all guests\r\n[2] List all available rooms\r\n[3] Register new guest\r\n[4] Check-in guest\r\n[5] Display stay details of a guest\r\n[6] Extend number of days of stay\r\n[0] Exit");
         Console.WriteLine("---------------------------------");
         Console.Write("Enter Your Option: ");
+
+        // Read The Option As An Integer
         int option = int.Parse(Console.ReadLine());
-        break;
+
+        // Option 1
+        if (option == 1)
+        {
+            // Call The Display Guests Method
+            DisplayGuests();
+        }
+
+        // Option 2
+        if (option == 2)
+        {
+            // Call The Display Rooms Method
+            DisplayRooms();
+        }
+
+        // Option 3
+        if (option == 3)
+        {
+            // Prompt User For Information
+            Console.Write("Enter Your Name: ");
+            Console.Write("Enter Your Passport Number: ");
+        }
     }
 
-
-
+    // Validation For Option Input
     catch (FormatException ex)
     {
         Console.WriteLine(ex.Message);
-        Console.WriteLine("Please enter a numeric value!");
+        Console.WriteLine("Please Enter A Numeric Value!");
     }
 }

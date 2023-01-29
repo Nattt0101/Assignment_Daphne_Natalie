@@ -13,3 +13,18 @@ C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Na
 C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.pdb
 C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.genruntimeconfig.cache
 C:\Users\Natalie\OneDrive\Sem 2\PRG\sem 2\Assignment 1\Code\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\ref\Assignment_Daphne_Natalie.dll
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\bin\Debug\net6.0\Assignment_Daphne_Natalie.exe
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\bin\Debug\net6.0\Assignment_Daphne_Natalie.deps.json
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\bin\Debug\net6.0\Assignment_Daphne_Natalie.runtimeconfig.json
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\bin\Debug\net6.0\Assignment_Daphne_Natalie.dll
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\bin\Debug\net6.0\Assignment_Daphne_Natalie.pdb
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.csproj.AssemblyReference.cache
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.AssemblyInfoInputs.cache
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.AssemblyInfo.cs
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.csproj.CoreCompileInputs.cache
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.dll
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\refint\Assignment_Daphne_Natalie.dll
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.pdb
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\Assignment_Daphne_Natalie.genruntimeconfig.cache
+C:\Users\daphn\OneDrive\Desktop\NP\Year 1\Semester 2\PRG2\Assignment\Assignment_Daphne_Natalie\Assignment_Daphne_Natalie\obj\Debug\net6.0\ref\Assignment_Daphne_Natalie.dll
