@@ -95,25 +95,7 @@ for (int i = 0; i < slines.Length; i++)
     }
 }
 
-void DisplayGuests()
-{
-    
-}
 
-DisplayGuests();
-
-foreach (Guest guest in guestList)
-{
-    Console.WriteLine(guest);
-}
-
-void DisplayRooms()
-{
-    string[] rlines = File.ReadAllLines("Rooms.csv");
-
-    for (int i = 0; i < rlines.Length; i++)
-    {
-        string[] rline = rlines[i].Split(',');//get each line
 
         if (i == 0)//first line
         {
@@ -131,11 +113,6 @@ void DisplayRooms()
     }
 }
 
-DisplayRooms();
-foreach (Room room in roomList)
-{
-    Console.WriteLine(room);
-}
 
 /*
 // Method To Display Guests
