@@ -21,7 +21,12 @@ namespace Assignment_Daphne_Natalie
 
         public bool additionalBed { get; set; }
 
-        public DeluxeRoom(Room r, Room b, Room d, Room a) : base(r, b, d, a)
+        public DeluxeRoom() : base()
+        {
+
+        }
+
+        public DeluxeRoom(int r, string b, double d, bool a) : base(r, b, d, a)
         {
 
         }
@@ -29,7 +34,7 @@ namespace Assignment_Daphne_Natalie
 
         public override double CalculateCharges()
         {
-            return 2.0;
+            return 0.0;
         }
 
         public override string ToString()

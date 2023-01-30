@@ -18,27 +18,86 @@ using Assignment_Daphne_Natalie;
 // Student Name : Daphne Yap
 //==========================================================
 
-// Read File
+// Read Files
 string[] slines = File.ReadAllLines("Stays.csv");
+string[] glines = File.ReadAllLines("Guests.csv");
+string[] rlines = File.ReadAllLines("Rooms.csv");
+
 
 // Create New List For Guests
 List<Guest> guestList = new List<Guest>();
 
-// Create New List For Rooms
-List<Room> roomList = new List<Room>();
+// Create New Dict For Rooms
+Dictionary<int, Room> rooms = new Dictionary<int, Room>();
 
-/*
-void DisplayGuests()
+for (int i = 0; i < glines.Length; i++)
 {
-    string[] glines = File.ReadAllLines("Guests.csv");
+    string[] gline = glines[i].Split(',');//get each line
+    Guest guest = new Guest();
+    guest.Name = gline[0];
+    guest.PassportNum = gline[1];
+    Membership membership = new Membership(gline[2], int.Parse(gline[3]));
+    guest.Member = membership;
+    guestList.Add(guest);
+}
 
-    for (int i = 0; i < glines.Length; i++)
+for(int i=0; i < rlines.Length; i++)
+{
+    string[] rline = rlines[i].Split(',');
+    string roomtype=rline[0];
+    int roomnumber = int.Parse(rline[1]);
+    string bedconfig = rline[2];
+    int dailyRate = int.Parse(rline[3]);
+    Room room;
+    if (roomtype == "Standard")
     {
-        string[] gline = glines[i].Split(',');//get each line
-        Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", gline[0], gline[1], gline[2], gline[3]);
-        Guest guest = new Guest(gline[0], gline[1], gline[3], gline[4]);
+        room = new StandardRoom(roomnumber,bedconfig,dailyRate,true);
+    }
+    else
+    {
+        room = new DeluxeRoom(roomnumber,bedconfig,dailyRate,true);
+    }
+    rooms.Add(roomnumber, room);
+}
+
+for (int i = 0; i < slines.Length; i++)
+{
+    string[] sline = slines[i].Split(',');
+    string name=sline[0];
+    string passportnum=sline[1];
+    bool ischeckedin=bool.Parse(sline[2]);
+    DateTime checkindate = DateTime.Parse(sline[3]);
+    DateTime checkoutdate = DateTime.Parse(sline[4]);
+    string roomnum=sline[5];
+    bool wifi = bool.Parse(sline[6]);
+    bool brkfast = bool.Parse(sline[7]);
+    bool extrabed = bool.Parse(sline[8]);
+    string roomnum2 = sline[9];
+    bool wifi2 = bool.Parse(sline[10]);
+    bool brkfast2 = bool.Parse(sline[11]);
+    bool extrabed2 = bool.Parse(sline[12]);
+    Stay stay = new Stay(checkindate, checkoutdate);
+    Room room = rooms[int.Parse(roomnum)];
+    room.IsAvail = false;
+    stay.AddRoom(room);
+    if (roomnum2.Length > 0)
+    {
+        Room room2 = rooms[int.Parse(roomnum2)];
+        room2.IsAvail = false;
+        stay.AddRoom(room2);
+    }
+    foreach(Guest guest in guestList)
+    {
+        if (guest.Name==name && guest.PassportNum == passportnum)
+        {
+            guest.HotelStay = stay;
         }
     }
+}
+
+void DisplayGuests()
+{
+    
 }
 
 DisplayGuests();
@@ -77,8 +136,8 @@ foreach (Room room in roomList)
 {
     Console.WriteLine(room);
 }
-*/
 
+/*
 // Method To Display Guests
 void DisplayGuests()
 {
@@ -132,7 +191,7 @@ void DisplayRooms()
         }
     }
 }
-
+*/
 while (true)
 {
     // Display Menu

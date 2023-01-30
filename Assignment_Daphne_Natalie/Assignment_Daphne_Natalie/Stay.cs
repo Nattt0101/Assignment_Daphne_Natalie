@@ -24,16 +24,18 @@ namespace Assignment_Daphne_Natalie
         public DateTime CheckOutDate { get; set; }
 
         public List<Room> RoomList { get; set; }
-        = new List<Room>();
+     
 
 
         public Stay()
         {
-
+            RoomList = new List<Room>(); 
         }
 
         public Stay(DateTime checkInDate, DateTime checkOutDate)
         {
+            //create room list
+            RoomList = new List<Room>();
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
         }
@@ -45,7 +47,13 @@ namespace Assignment_Daphne_Natalie
 
         public double CalculateTotal()                                                                                            
         {
-            return 0.0;
+            double total = 0;
+            TimeSpan duration =CheckOutDate - CheckInDate;
+            foreach (Room room in RoomList)
+            {
+                total += (room.DailyRate * duration.Days) + room.CalculateCharges();
+            }
+            return total;
         }
 
         public override string ToString()

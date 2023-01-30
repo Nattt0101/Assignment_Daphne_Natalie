@@ -35,19 +35,20 @@ namespace Assignment_Daphne_Natalie
 
         public void EarnPoints(double points)
         {
-
+            Points = Points + (int)(points);
         }
 
         public bool RedeemPoints(int p)
         {
-            if (p >= 100)
+            if (Status == "Silver" || Status=="Gold")
             {
-                return true;
+                if(Points>=p)
+                {
+                    Points = Points - p;
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public override string ToString()

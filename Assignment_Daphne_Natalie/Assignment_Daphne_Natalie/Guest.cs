@@ -18,11 +18,6 @@ namespace Assignment_Daphne_Natalie
 {
     class Guest
     {
-        private string name;
-        private string passportnum;
-        private string hotelstay;
-        private string member;
-        private string ischeckedin;
 
         public string Name { get; set; }
 
