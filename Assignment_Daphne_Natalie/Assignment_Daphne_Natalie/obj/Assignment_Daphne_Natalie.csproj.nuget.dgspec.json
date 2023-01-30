@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Natalie\\Source\\Repos\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj": {}
+    "C:\\Users\\daphn\\OneDrive\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Natalie\\Source\\Repos\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj": {
+    "C:\\Users\\daphn\\OneDrive\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Natalie\\Source\\Repos\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
+        "projectUniqueName": "C:\\Users\\daphn\\OneDrive\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
         "projectName": "Assignment_Daphne_Natalie",
-        "projectPath": "C:\\Users\\Natalie\\Source\\Repos\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
-        "packagesPath": "C:\\Users\\Natalie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Natalie\\Source\\Repos\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\obj\\",
+        "projectPath": "C:\\Users\\daphn\\OneDrive\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
+        "packagesPath": "C:\\Users\\daphn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\daphn\\OneDrive\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Natalie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\daphn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
