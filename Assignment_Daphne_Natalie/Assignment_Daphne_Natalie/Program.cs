@@ -42,12 +42,12 @@ while (true)
 
     if (option == 1)
     {
-        DisplayAllGuest(guestList);
+        DisplayGuest(guestList);
     }
 
     else if (option == 2)
     {
-        DisplayAllRoom(roomList);
+        DisplayRoom( rooms);
     }
 
     else if (option == 3)
@@ -95,6 +95,26 @@ while (true)
     }
 }
 
+void DisplayMonthlyAmount(List<Guest> guestList, object stayList)
+{
+    throw new NotImplementedException();
+}
+
+void CheckOutGuest(List<Guest> guestList)
+{
+    throw new NotImplementedException();
+}
+
+void ExtendStay(List<Guest> guestList)
+{
+    throw new NotImplementedException();
+}
+
+void DisplayStayDetails(List<Guest> guestList)
+{
+    throw new NotImplementedException();
+}
+
 void DisplayMenu()
     {
         Console.WriteLine("\n------------- MENU --------------");
@@ -105,98 +125,111 @@ void DisplayMenu()
     }
 
 
-//guest variables
-for (int i = 1; i < glines.Length; i++)
+void DisplayGuest(List<Guest> guestList)
 {
-    string[] gline = glines[i].Split(',');//get each line
-    Guest guest = new Guest();
-    guest.Name = gline[0];
-    guest.PassportNum = gline[1];
-    Membership membership = new Membership(gline[2], int.Parse(gline[3]));
-    guest.Member = membership;
-    guestList.Add(guest);
+
+    //guest variables
+    for (int i = 1; i < glines.Length; i++)
+    {
+        string[] gline = glines[i].Split(',');//get each line
+        Guest guest = new Guest();
+        guest.Name = gline[0];
+        guest.PassportNum = gline[1];
+        Membership membership = new Membership(gline[2], int.Parse(gline[3]));
+        guest.Member = membership;
+        guestList.Add(guest);
+    }
+
 }
 
-
-for (int i = 1; i < rlines.Length; i++)
+void DisplayRoom(Dictionary<int, Room> rooms)
 {
-    string[] rline = rlines[i].Split(',');
-    string roomtype = rline[0];
-    int roomnumber = int.Parse(rline[1]);
-    string bedconfig = rline[2];
-    int dailyRate = int.Parse(rline[3]);
-    Room room;
-    if (roomtype == "Standard")
+
+    for (int i = 1; i < rlines.Length; i++)
     {
-        room = new StandardRoom(roomnumber, bedconfig, dailyRate, true);
+        string[] rline = rlines[i].Split(',');
+        string roomtype = rline[0];
+        int roomnumber = int.Parse(rline[1]);
+        string bedconfig = rline[2];
+        int dailyRate = int.Parse(rline[3]);
+        Room room;
+        if (roomtype == "Standard")
+        {
+            room = new StandardRoom(roomnumber, bedconfig, dailyRate, true);
+        }
+        else
+        {
+            room = new DeluxeRoom(roomnumber, bedconfig, dailyRate, true);
+        }
+        rooms.Add(roomnumber, room);
     }
-    else
-    {
-        room = new DeluxeRoom(roomnumber, bedconfig, dailyRate, true);
-    }
-    rooms.Add(roomnumber, room);
+
 }
-
-for (int i = 1; i < slines.Length; i++)
+void DisplayStay(string name, string passportnum, Stay stay)
 {
-    string[] sline = slines[i].Split(',');
-    string name = sline[0];
-    string passportnum = sline[1];
-    bool ischeckedin = bool.Parse(sline[2]);
-    DateTime checkindate = DateTime.Parse(sline[3]);
-    DateTime checkoutdate = DateTime.Parse(sline[4]);
-    string roomnum = sline[5];
-    bool wifi = bool.Parse(sline[6]);
-    bool brkfast = bool.Parse(sline[7]);
-    bool extrabed = bool.Parse(sline[8]);
-    string roomnum2 = sline[9];
 
-    //wifi2
-    if (sline[10] == "")
+    for (int i = 1; i < slines.Length; i++)
     {
+        string[] sline = slines[i].Split(',');
+        name = sline[0];
+        passportnum = sline[1];
+        bool ischeckedin = bool.Parse(sline[2]);
+        DateTime checkindate = DateTime.Parse(sline[3]);
+        DateTime checkoutdate = DateTime.Parse(sline[4]);
+        string roomnum = sline[5];
+        bool wifi = bool.Parse(sline[6]);
+        bool brkfast = bool.Parse(sline[7]);
+        bool extrabed = bool.Parse(sline[8]);
+        string roomnum2 = sline[9];
 
-        bool wifi2 = bool.Parse("False");
+        //wifi2
+        if (sline[10] == "")
+        {
+
+            bool wifi2 = bool.Parse("False");
+        }
+        else
+        {
+
+            bool wifi2 = bool.Parse(sline[10]);
+        }
+
+        //brkfast2
+        if (sline[11] == "")
+        {
+
+            bool brkfast2 = bool.Parse("False");
+        }
+        else
+        {
+
+            bool brkfast2 = bool.Parse(sline[11]);
+        }
+
+        //extrabed2
+        if (sline[12] == "")
+        {
+
+            bool extrabed2 = bool.Parse("False");
+        }
+        else
+        {
+
+            bool extrabed2 = bool.Parse(sline[12]);
+        }
+
+        stay = new Stay(checkindate, checkoutdate);
+        Room room = rooms[int.Parse(roomnum)];
+        room.IsAvail = false;
+        stay.AddRoom(room);
+        if (roomnum2.Length > 0)
+        {
+            Room room2 = rooms[int.Parse(roomnum2)];
+            room2.IsAvail = false;
+            stay.AddRoom(room2);
+        }
     }
-    else
-    {
 
-        bool wifi2 = bool.Parse(sline[10]);
-    }
-
-    //brkfast2
-    if (sline[11] == "")
-    {
-
-        bool brkfast2 = bool.Parse("False");
-    }
-    else
-    {
-
-        bool brkfast2 = bool.Parse(sline[11]);
-    }
-
-    //extrabed2
-    if (sline[12] == "")
-    {
-
-        bool extrabed2 = bool.Parse("False");
-    }
-    else
-    {
-
-        bool extrabed2 = bool.Parse(sline[12]);
-    }
-
-    Stay stay = new Stay(checkindate, checkoutdate);
-    Room room = rooms[int.Parse(roomnum)];
-    room.IsAvail = false;
-    stay.AddRoom(room);
-    if (roomnum2.Length > 0)
-    {
-        Room room2 = rooms[int.Parse(roomnum2)];
-        room2.IsAvail = false;
-        stay.AddRoom(room2);
-    }
     foreach (Guest guest in guestList)
     {
         if (guest.Name == name && guest.PassportNum == passportnum)
@@ -208,29 +241,30 @@ for (int i = 1; i < slines.Length; i++)
 
 
 // Method To Display Guests
-void DisplayGuests()
+void DisplayGuests(List<Guest>guestList)
 {
     foreach (Guest guest in guestList)
     {
         Console.WriteLine(guest + "\n");
     }
 
+    Console.WriteLine("\n");
 }
 
-DisplayGuests();
 
 Console.WriteLine("\n");
 
 // Method To Display Rooms
-void DisplayRooms()
+void DisplayRooms(Dictionary<int, Room> rooms)
 {
     for (int i = 0; i < rooms.Count; i++)
     {
         Console.WriteLine(rooms.Keys.ElementAt(1));
     }
+
+    Console.WriteLine("\n");
 }
 
-DisplayRooms();
 
 
 /*
@@ -242,7 +276,7 @@ DisplayRooms();
  display a message to indicate registration status*/
 
 // Option 3
-void RegisterGuest()
+void RegisterGuest(List<Guest> guestList)
 {
     foreach (Guest guest in guestList)
     {
@@ -263,10 +297,10 @@ void RegisterGuest()
     }
 
 }
-}
+
             
 
-void Checkin()
+void Checkin(List<Guest> guestList)
 {
     for (int i = 0; i < glines.Length; i++)
     {
