@@ -18,10 +18,14 @@ using Assignment_Daphne_Natalie;
 // Student Name : Daphne Yap
 //==========================================================
 
-string[] slines = File.ReadAllLines("Stays.csv"); // Read File
+// Read File
+string[] slines = File.ReadAllLines("Stays.csv");
 
-List<Guest> guestList = new List<Guest>(); // Create New List For Guests
-List<Room> roomList = new List<Room>(); // Create New List For Rooms
+// Create New List For Guests
+List<Guest> guestList = new List<Guest>();
+
+// Create New List For Rooms
+List<Room> roomList = new List<Room>();
 
 /*
 void DisplayGuests()
@@ -78,11 +82,13 @@ foreach (Room room in roomList)
 // Method To Display Guests
 void DisplayGuests()
 {
-    string[] glines = File.ReadAllLines("Guests.csv"); // Read File
+    // Read File
+    string[] glines = File.ReadAllLines("Guests.csv");
 
     for (int i = 0; i < glines.Length; i++)
     {
-        string[] gline = glines[i].Split(','); // To Get Each Line
+        // To Get Each Line
+        string[] gline = glines[i].Split(',');
 
         if (i == 0)
         {
@@ -102,11 +108,13 @@ void DisplayGuests()
 // Method To Display Rooms
 void DisplayRooms()
 {
-    string[] rlines = File.ReadAllLines("Rooms.csv"); // Read File
+    // Read File
+    string[] rlines = File.ReadAllLines("Rooms.csv");
 
     for (int i = 0; i < rlines.Length; i++)
     {
-        string[] rline = rlines[i].Split(','); // To Get Each Line
+        // To Get Each Line
+        string[] rline = rlines[i].Split(',');
 
         if (i == 0)
         {
@@ -158,6 +166,69 @@ while (true)
             // Prompt User For Information
             Console.Write("Enter Your Name: ");
             Console.Write("Enter Your Passport Number: ");
+        }
+
+        if (option == 4)
+        {
+            // Read File
+            string[] glines = File.ReadAllLines("Guests.csv");
+
+            for (int i = 0; i < glines.Length; i++)
+            {
+                // To Get Each Line
+                string[] gline = glines[i].Split(',');
+
+                // To Get The Lines After The Header
+                if (i != 0 && i < 8)
+                {
+                    // Display The Names Of The Guests
+                    Console.WriteLine(gline[0]);
+                }
+            }
+
+            // Prompt User To Select A Guest
+            Console.Write("Select A Guest: ");
+            string guest = Console.ReadLine();
+
+            // Retrieve Selected Guest
+
+            // Prompt User For Check In Date
+            Console.Write("Enter Your Check In Date: ");
+            string checkin = Console.ReadLine();
+
+            // Prompt User For Check Out Date
+            Console.Write("Enter Your Check Out Date: ");
+            string checkout = Console.ReadLine();
+
+            // Create Stay Object
+
+            // List Available Rooms
+
+            // Prompt User To Select A Room
+            Console.Write("Please Select A Room(Room Number): ");
+            int room = Convert.ToInt32(Console.ReadLine());
+
+            // Retrieve Selected Room
+
+            // Response For Standard Room
+            if (room == 101 && room == 102 && room == 201 && room == 202 && room == 301 && room == 302)
+            {
+                Console.Write("Do You Require Wi-Fi And BreakFast? ");
+            }
+
+            // Response For Deluxe Room
+            if (room == 204 && room == 205 && room == 303 && room == 304)
+            {
+                Console.Write("Do You Require An Additional Bed? ");
+            }
+
+            // Validations For Room Input
+            else
+            {
+                Console.Write("Please Enter A Valid Number!");
+            }
+
+            // not sure how to do after this
         }
     }
 
