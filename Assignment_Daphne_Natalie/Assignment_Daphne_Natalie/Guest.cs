@@ -45,7 +45,7 @@ namespace Assignment_Daphne_Natalie
 
         public override string ToString()
         {
-            return "Name: " + Name + "PassportNum: " + PassportNum + "HotelStay: " + HotelStay + "Membership: " + Member;
+            return "Name: " + Name + "\t PassportNum: " + PassportNum + "\t HotelStay: " + HotelStay + "\t Membership: " + Member;
         }
     }
 }
