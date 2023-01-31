@@ -776,35 +776,35 @@ while (true)
             RegisterGuest(guestList);
         }
 
-        // Option 4
+        // Option 4: Daphne
         else if (option == 4)
         {
             // Call The Check In Method
             Checkin(guestList);
         }
 
-        // Option 5
+        // Option 5:Natalie
         else if (option == 5)
         {
             // Call The Display Stay Details Method
             DisplayStayDetails(guestList);
         }
 
-        // Option 6
+        // Option 6:Daphne
         else if (option == 6)
         {
             // Call The Extend Stay Method
             ExtendStay(guestList);
         }
 
-        // Option 7 (Advanced)
+        // Option 7 (Advanced):Natalie
         else if (option == 7)
         {
             // Call The Display Monthly Amount Method
             DisplayMonthlyAmount();
         }
 
-        // Option 8 (Advanced)
+        // Option 8 (Advanced):Natalie
         else if (option == 8)
         {
             // Call The Check Out Method
