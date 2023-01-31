@@ -43,7 +43,7 @@ namespace Assignment_Daphne_Natalie
 
         public override string ToString()
         {
-            return "RoomNumber: " + RoomNumber + "BedConfiguration: " + BedConfiguration + "DailyRate: " + DailyRate + "IsAvail: " + IsAvail;
+            return " RoomNumber: " + RoomNumber + " BedConfiguration: " + BedConfiguration + " DailyRate: " + DailyRate + " IsAvail: " + IsAvail;
         }
     }
 }
