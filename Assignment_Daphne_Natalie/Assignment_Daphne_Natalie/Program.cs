@@ -168,7 +168,7 @@ void DisplayMenu()
     Console.Write("Enter Your Option: ");
 }
 
-// Option 1
+// Option 1 - Natalie
 void DisplayGuest(List<Guest> guestList)
 {
     Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", "Name", "Passport Number", "Membership Status", "Membership Points");
@@ -179,7 +179,7 @@ void DisplayGuest(List<Guest> guestList)
     }
 }
 
-// Option 2
+// Option 2 - Daphne
 void DisplayRoom(List<Room> roomList)
 {
     Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", "RoomNumber", "BedConfiguration", "DailyRate", "Available");
@@ -194,7 +194,7 @@ void DisplayRoom(List<Room> roomList)
     }
 }
 
-// Option 3
+// Option 3 - Natalie
 void RegisterGuest(List<Guest> guestList)
 {
     while (true)
@@ -245,7 +245,7 @@ void RegisterGuest(List<Guest> guestList)
     }
 }
 
-// Option 4
+// Option 4 - Daphne
 void Checkin(List<Guest> guestList)
 {
     // Create Guest Object
@@ -432,7 +432,7 @@ void Checkin(List<Guest> guestList)
     Console.WriteLine("Guest Is Checked In!");
 }
 
-// Option 5
+// Option 5 - Natalie
 void DisplayStayDetails(List<Guest> guestList)
 {
     // Call The Display Guest Method
@@ -464,18 +464,20 @@ void DisplayStayDetails(List<Guest> guestList)
                 {
                     Console.WriteLine(room);
                 }
+                break;
             }
 
             // Validations For No Details In Stay
             else
             {
                 Console.WriteLine("No Hotel Stay Records!");
+                break;
             }
         }
     }
 }
 
-// Option 6
+// Option 6 - Daphne
 void ExtendStay(List<Guest> guestList)
 {
     // Call The Display Guest Method
@@ -514,7 +516,7 @@ void ExtendStay(List<Guest> guestList)
     }
 }
 
-// Option 7 (Advanced)
+// Option 7 (Advanced) - Natalie
 void DisplayMonthlyAmount()
 {
     // Prompt User For Year
@@ -620,7 +622,7 @@ void DisplayMonthlyAmount()
     Console.WriteLine("\nTotal: $" + total);
 }
 
-// Option 8 (Advanced)
+// Option 8 (Advanced) - Natalie
 void CheckOutGuest(List<Guest> guestList)
 {
     // Call The Display Guest Method
@@ -677,7 +679,6 @@ void CheckOutGuest(List<Guest> guestList)
                         total = guest.HotelStay.CalculateTotal() + total2;
                     }
                 }
-
             }
 
             else
@@ -710,7 +711,7 @@ void CheckOutGuest(List<Guest> guestList)
             {
                 Console.Write("Updated Membership: " + guest.Member.Status, guest.Member.Points);
             }
-            
+
             // Update Check Out Status
             guest.IsCheckedIn = false;
 
