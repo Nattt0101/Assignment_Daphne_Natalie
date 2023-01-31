@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Natalie\\source\\repos\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
+      "projectUniqueName": "C:\\Users\\Natalie\\source\\repos\\Assignment_Daphne_Natalie\\update\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
       "projectName": "Assignment_Daphne_Natalie",
-      "projectPath": "C:\\Users\\Natalie\\source\\repos\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
+      "projectPath": "C:\\Users\\Natalie\\source\\repos\\Assignment_Daphne_Natalie\\update\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
       "packagesPath": "C:\\Users\\Natalie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Natalie\\source\\repos\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\obj\\",
+      "outputPath": "C:\\Users\\Natalie\\source\\repos\\Assignment_Daphne_Natalie\\update\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Natalie\\AppData\\Roaming\\NuGet\\NuGet.Config",

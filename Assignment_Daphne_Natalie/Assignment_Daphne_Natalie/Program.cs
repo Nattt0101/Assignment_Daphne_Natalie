@@ -735,6 +735,7 @@ void CheckOutGuest(List<Guest> guestList)
             foreach (Room room in roomList)
             {
                 guest.HotelStay.RoomList.Remove(room);
+                room.IsAvail = true;
             }
 
 
@@ -782,7 +783,7 @@ while (true)
             // Call The Check In Method
             Checkin(guestList);
         }
-
+  
         // Option 5:Natalie
         else if (option == 5)
         {
