@@ -127,7 +127,7 @@ for (int i = 1; i < slines.Length; i++)
 
     Stay stay = new Stay(checkindate, checkoutdate);
 
-    foreach(Room room in roomList)
+    foreach (Room room in roomList)
     {
         if (room.RoomNumber == int.Parse(roomnum))
         {
@@ -135,7 +135,7 @@ for (int i = 1; i < slines.Length; i++)
             stay.AddRoom(room);
         }
     }
-   
+
     if (roomnum2.Length > 0)
     {
         foreach (Room room in roomList)
@@ -148,7 +148,7 @@ for (int i = 1; i < slines.Length; i++)
         }
     }
 
-    foreach(Guest guest in guestList)
+    foreach (Guest guest in guestList)
     {
         if (guest.Name == name && guest.PassportNum == passportnum)
         {
@@ -168,7 +168,7 @@ void DisplayMenu()
     Console.Write("Enter Your Option: ");
 }
 
-// Option 1 - Natalie
+// Option 1
 void DisplayGuest(List<Guest> guestList)
 {
     Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", "Name", "Passport Number", "Membership Status", "Membership Points");
@@ -179,7 +179,7 @@ void DisplayGuest(List<Guest> guestList)
     }
 }
 
-// Option 2 - Daphne
+// Option 2
 void DisplayRoom(List<Room> roomList)
 {
     Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", "RoomNumber", "BedConfiguration", "DailyRate", "Available");
@@ -194,7 +194,7 @@ void DisplayRoom(List<Room> roomList)
     }
 }
 
-// Option 3 - Natalie
+// Option 3
 void RegisterGuest(List<Guest> guestList)
 {
     while (true)
@@ -245,7 +245,7 @@ void RegisterGuest(List<Guest> guestList)
     }
 }
 
-// Option 4 - Daphne
+// Option 4
 void Checkin(List<Guest> guestList)
 {
     // Create Guest Object
@@ -334,6 +334,7 @@ void Checkin(List<Guest> guestList)
                         Console.WriteLine("Invalid Option! Please Try Again!");
                         break;
                     }
+
 
                     // Prompt User For Breakfast Requirement
                     Console.Write("Do You Require Breakfast [Y/N]: ");
@@ -430,9 +431,11 @@ void Checkin(List<Guest> guestList)
     guest.IsCheckedIn = true;
 
     Console.WriteLine("Guest Is Checked In!");
+
+
 }
 
-// Option 5 - Natalie
+// Option 5
 void DisplayStayDetails(List<Guest> guestList)
 {
     // Call The Display Guest Method
@@ -477,7 +480,7 @@ void DisplayStayDetails(List<Guest> guestList)
     }
 }
 
-// Option 6 - Daphne
+// Option 6
 void ExtendStay(List<Guest> guestList)
 {
     // Call The Display Guest Method
@@ -505,18 +508,20 @@ void ExtendStay(List<Guest> guestList)
 
                 g.HotelStay.CheckOutDate += TimeSpan.FromDays(extend);
                 Console.WriteLine("Updated!");
+                break;
             }
 
             // Guest Is Not Checked In
             else
             {
                 Console.WriteLine("Guest Is Not Checked In!");
+                break;
             }
         }
     }
 }
 
-// Option 7 (Advanced) - Natalie
+// Option 7 (Advanced)
 void DisplayMonthlyAmount()
 {
     // Prompt User For Year
@@ -622,7 +627,7 @@ void DisplayMonthlyAmount()
     Console.WriteLine("\nTotal: $" + total);
 }
 
-// Option 8 (Advanced) - Natalie
+// Option 8 (Advanced)
 void CheckOutGuest(List<Guest> guestList)
 {
     // Call The Display Guest Method
@@ -634,21 +639,22 @@ void CheckOutGuest(List<Guest> guestList)
     //Read The Input As String
     string name = Console.ReadLine();
 
+
+
     foreach (Guest guest in guestList)
     {
         if (guest.Name == name)
         {
-            Console.WriteLine("Membership Status \t Membership Points \t Total Fee");
+            Console.WriteLine("Membership Status \t Membership Points");
             Console.Write(guest.Member.Status + "\t \t \t ");
             Console.Write(guest.Member.Points + "\t \t \t ");
 
-            Console.WriteLine(guest.HotelStay.CalculateTotal() + "\n");
             double total = guest.HotelStay.CalculateTotal();
 
             // Check Membership Status
             if (guest.Member.Status == "Ordinary")
             {
-                Console.WriteLine("You Can't Reedem Points!");
+                Console.WriteLine("\nYou Can't Reedem Points!");
             }
 
             else
@@ -662,37 +668,48 @@ void CheckOutGuest(List<Guest> guestList)
                 if (guest.Member.RedeemPoints(points))
                 {
                     total -= points;
+
                 }
             }
 
-            if (guest.HotelStay.RoomList.Count > 1)
+            foreach (Room room in roomList)
             {
-                double total2 = 0;
+
 
                 TimeSpan duration = guest.HotelStay.CheckOutDate - guest.HotelStay.CheckInDate;
 
-                for (int i = 1; i < guest.HotelStay.RoomList.Count; i++)
+                if (guest.HotelStay.RoomList.Count > 1)
                 {
-                    foreach (Room r in roomList)
+                    double total2 = 0;
+
+
+                    for (int i = 1; i < guest.HotelStay.RoomList.Count; i++)
                     {
-                        total2 += (r.DailyRate * duration.Days) + r.CalculateCharges();
-                        total = guest.HotelStay.CalculateTotal() + total2;
+                        foreach (Room r in roomList)
+                        {
+                            total2 += (r.DailyRate * duration.Days) + r.CalculateCharges();
+                            total = guest.HotelStay.CalculateTotal() + total2;
+                            Console.WriteLine("Total payable: " + total);
+                            break;
+                        }
                     }
+
                 }
-            }
 
-            else
-            {
-                Console.WriteLine(total);
+                else
+                {
+                    Console.WriteLine("Total payable: " + total);
+                    break;
+                }
+                break;
             }
-
             // Prompt User To Make Payment
             Console.WriteLine("Press Any Key To Make Payment...");
             Console.ReadKey();
 
             // Earn Points
             guest.Member.EarnPoints(total / 10);
-            Console.Write("\n Updated Points: " + guest.Member.Points);
+            Console.Write("\nUpdated Points: " + guest.Member.Points + "\t");
 
             // Update Membership Status According To Points Earned
             if (guest.Member.Points > 100)
@@ -715,6 +732,12 @@ void CheckOutGuest(List<Guest> guestList)
             // Update Check Out Status
             guest.IsCheckedIn = false;
 
+            foreach (Room room in roomList)
+            {
+                guest.HotelStay.RoomList.Remove(room);
+            }
+
+
             break;
         }
     }
@@ -732,21 +755,21 @@ while (true)
         int option = int.Parse(Console.ReadLine());
         Console.WriteLine();
 
-        // Option 1
+        // Option 1: Natalie
         if (option == 1)
         {
             // Call The Display Guest Method
             DisplayGuest(guestList);
         }
 
-        // Option 2
+        // Option 2: Daphne
         else if (option == 2)
         {
             // Call The Display Room Method
             DisplayRoom(roomList);
         }
 
-        // Option 3
+        // Option 3: Natalie
         else if (option == 3)
         {
             // call The Register Guest Method

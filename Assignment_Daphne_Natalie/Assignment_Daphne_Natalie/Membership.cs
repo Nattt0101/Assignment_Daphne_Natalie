@@ -40,15 +40,15 @@ namespace Assignment_Daphne_Natalie
 
         public bool RedeemPoints(int p)
         {
-            if (Status == "Silver" || Status=="Gold")
+            if (Points < p || p < 0)
             {
-                if(Points>=p)
-                {
-                    Points = Points - p;
-                    return true;
-                }
+                return false;
             }
-            return false;
+            else
+            {
+                Points -= p;
+                return true;
+            }
         }
 
         public override string ToString()

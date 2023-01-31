@@ -33,7 +33,16 @@ namespace Assignment_Daphne_Natalie
 
         public override double CalculateCharges()
         {
-            return 0.0;
+            double charge = 0;
+            if (RequireWifi == true)
+            {
+                charge = 10 + charge;
+            }
+            if (RequireBreakfast == true)
+            {
+                charge = 20 + charge;
+            }
+            return charge;
         }
 
         public override string ToString()

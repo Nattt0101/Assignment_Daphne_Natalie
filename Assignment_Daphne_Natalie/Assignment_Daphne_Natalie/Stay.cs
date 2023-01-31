@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,10 +49,11 @@ namespace Assignment_Daphne_Natalie
         public double CalculateTotal()                                                                                            
         {
             double total = 0;
+            double charges = 0;
             TimeSpan duration =CheckOutDate - CheckInDate;
             foreach (Room room in RoomList)
             {
-                total += (room.DailyRate * duration.Days) + room.CalculateCharges();
+                total = charges + ((duration.Days + 1) * room.CalculateCharges()) + ((duration.Days + 1) * room.DailyRate);
             }
             return total;
         }

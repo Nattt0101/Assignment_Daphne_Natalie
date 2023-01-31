@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Yap\\.nuget\\packages\\": {}
+    "C:\\Users\\Natalie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yap\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
+      "projectUniqueName": "C:\\Users\\Natalie\\source\\repos\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
       "projectName": "Assignment_Daphne_Natalie",
-      "projectPath": "C:\\Users\\Yap\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
-      "packagesPath": "C:\\Users\\Yap\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yap\\Desktop\\NP\\Year 1\\Semester 2\\PRG2\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\obj\\",
+      "projectPath": "C:\\Users\\Natalie\\source\\repos\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie.csproj",
+      "packagesPath": "C:\\Users\\Natalie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Natalie\\source\\repos\\Assignment\\Assignment_Daphne_Natalie\\Assignment_Daphne_Natalie\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Natalie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

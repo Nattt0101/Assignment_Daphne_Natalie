@@ -34,7 +34,12 @@ namespace Assignment_Daphne_Natalie
 
         public override double CalculateCharges()
         {
-            return 0.0;
+            double charge = 0;
+            if (additionalBed == true)
+            {
+                charge = charge + 25;
+            }
+            return charge;
         }
 
         public override string ToString()
