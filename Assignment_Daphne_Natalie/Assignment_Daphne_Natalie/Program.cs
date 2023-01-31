@@ -36,67 +36,78 @@ List<Room> roomList = new List<Room>();
 
 List<Stay> stayList = new List<Stay>();
 
-while (true)
-{
-    
-    DisplayMenu();
-    int option = int.Parse(Console.ReadLine());
-    Console.WriteLine();
 
-    if (option == 1)
+    while (true)
     {
-        DisplayGuest(guestList);
+        try
+        {
+
+            DisplayMenu();
+            int option = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            if (option == 1)
+            {
+                DisplayGuest(guestList);
+            }
+
+            else if (option == 2)
+            {
+                DisplayRoom(roomList);
+            }
+
+            else if (option == 3)
+            {
+                RegisterGuest(guestList);
+            }
+
+            else if (option == 4)
+            {
+                Checkin(guestList);
+            }
+
+            else if (option == 5)
+            {
+                DisplayStayDetails(guestList);
+            }
+
+            else if (option == 6)
+            {
+                ExtendStay(guestList);
+            }
+
+            else if (option == 7)
+            {
+                DisplayMonthlyAmount(guestList, stayList);
+            }
+
+            else if (option == 8)
+            {
+                CheckOutGuest(guestList);
+            }
+
+            else if (option == 0)
+            {
+                Console.WriteLine("---------");
+                Console.WriteLine("Goodbye!");
+                Console.WriteLine("---------");
+
+                break;
+            }
+
+            else
+            {
+                Console.WriteLine("Invalid option. Please try again.");
+            }
+        }
+        catch (FormatException ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine("Please try again.");
+        }
+
     }
 
-    else if (option == 2)
-    {
-        DisplayRoom(roomList);
-    }
-
-    else if (option == 3)
-    {
-       // RegisterGuest(guestList);
-    }
-
-    else if (option == 4)
-    {
-      //  Checkin(guestList);
-    }
-
-    else if (option == 5)
-    {
-        DisplayStay(guestList);
-    }
-
-    else if (option == 6)
-    {
-        ExtendStay(guestList);
-    }
-
-    else if (option == 7)
-    {
-        DisplayMonthlyAmount(guestList, stayList);
-    }
-
-    else if (option == 8)
-    {
-        CheckOutGuest(guestList);
-    }
-
-    else if (option == 0)
-    {
-        Console.WriteLine("---------");
-        Console.WriteLine("Goodbye!");
-        Console.WriteLine("---------");
-
-        break;
-    }
-
-    else
-    {
-        Console.WriteLine("Invalid option. Please try again.");
-    }
-}
 
 void DisplayMonthlyAmount(List<Guest> guestList, object stayList)
 {
@@ -113,7 +124,7 @@ void ExtendStay(List<Guest> guestList)
    
 }
 
-
+//Menu
 void DisplayMenu()
     {
         Console.WriteLine("\n------------- MENU --------------");
@@ -123,7 +134,7 @@ void DisplayMenu()
     
     }
 
-
+//Option 1
 void DisplayGuest(List<Guest> guestList)
 {
 
@@ -147,6 +158,7 @@ void DisplayGuest(List<Guest> guestList)
 
 }
 
+//Option 2
 void DisplayRoom(List<Room>roomList)
 {
     for (int i = 1; i < rlines.Length; i++)
@@ -184,6 +196,8 @@ void DisplayRoom(List<Room>roomList)
         }
     }
 }
+
+
 void DisplayStay(List<Guest>guestList)
 {
 
@@ -250,27 +264,68 @@ void DisplayStay(List<Guest>guestList)
     }
 }
 
+//Option 5
+void DisplayStayDetails(List<Guest> guestList)
+{
+    // 3.5.1 - list the guests
+    DisplayGuest(guestList);
+
+    // 3.5.2 - prompt user to select a guest and retrieve the selected guest
+    Console.WriteLine();
+    Console.Write("Enter Guest Name: ");
+    string guestFind = Console.ReadLine();
+
+    for (int i = 0; i < guestList.Count; i++)
+    {
+
+        foreach (Guest g in guestList)
+        {
+            if (g.Name == guestFind)
+            {
+                Console.WriteLine("\n This is the Stay Details of {0}. ", g.Name);
+                Console.WriteLine("===================================");
+                Console.WriteLine("{0,-20}{1,-25}{2,-30}{3,-30}{4,-30}", "Name", "Passport Number", "Check In", "Check Out", "Room");
+                Console.WriteLine("{0,-20}{1,-25}{2,-30}{3,-30}{4,-30}", g.Name, g.PassportNum, g.HotelStay.CheckInDate, g.HotelStay.CheckOutDate, g.HotelStay.RoomList);
+            }
+        }
+    }
+}
+
 // Option 3
 void RegisterGuest(List<Guest> guestList)
 {
-    foreach (Guest guest in guestList)
+    while (true)
     {
-        // Prompt User For Information
-        Console.Write("Enter Your Name: ");
-        string name = Console.ReadLine();
-        Console.Write("Enter Your Passport Number: ");
-        string passportnum = Console.ReadLine();
-        guest.HotelStay = null;
-        guest.Member.Status = "Ordinary";
-        guest.Member.Points = 0;
-        Guest newguest = new Guest(name, passportnum, guest.HotelStay, guest.Member);
-        guestList.Add(newguest);
-        using (StreamWriter sw = new StreamWriter("Guests.csv", true))
+        try
         {
-            sw.WriteLine(guest.Name + "," + guest.PassportNum + "," + guest.Member.Status + "," + guest.Member.Points);
+            foreach (Guest guest in guestList)
+            {
+                // Prompt User For Information
+                Console.Write("Enter Your Name: ");
+                string name = Console.ReadLine();
+                Console.Write("Enter Your Passport Number: ");
+                string passportnum = Console.ReadLine();
+                guest.HotelStay = null;
+                guest.Member.Status = "Ordinary";
+                guest.Member.Points = 0;
+                Guest newguest = new Guest(name, passportnum, guest.HotelStay, guest.Member);
+                guestList.Add(newguest);
+                using (StreamWriter sw = new StreamWriter("Guests.csv", true))
+                {
+                    sw.WriteLine(guest.Name + "," + guest.PassportNum + "," + guest.Member.Status + "," + guest.Member.Points);
+                }
+            }
+            break;
+        }
+
+
+        catch (FormatException ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine("Please try again.");
+
         }
     }
-
 }
 
             
@@ -315,13 +370,13 @@ void Checkin(List<Guest> guestList)
         // Retrieve Selected Room
 
         // Response For Standard Room
-        if (room == 101 && room == 102 && room == 201 && room == 202 && room == 301 && room == 302)
+        if (room == 101 || room == 102 || room == 201 || room == 202 || room == 301 || room == 302)
         {
             Console.Write("Do You Require Wi-Fi And BreakFast? ");
         }
 
         // Response For Deluxe Room
-        if (room == 204 && room == 205 && room == 303 && room == 304)
+        if (room == 204 || room == 205 || room == 303 || room == 304)
         {
             Console.Write("Do You Require An Additional Bed? ");
         }
@@ -333,7 +388,7 @@ void Checkin(List<Guest> guestList)
         }
     }
 
-        // not sure how to do after this
+
     
     
 
