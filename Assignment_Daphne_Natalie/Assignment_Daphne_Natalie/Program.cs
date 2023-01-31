@@ -8,6 +8,7 @@ using System.IO;
 
 using Assignment_Daphne_Natalie;
 using System.Diagnostics;
+using System.Text.Json.Serialization;
 
 //========================================================== 
 // Student Number : S10242410
@@ -31,11 +32,13 @@ using (StreamWriter sw = new StreamWriter("Guest.csv", true)) ;
     List<Guest> guestList = new List<Guest>();
 
 // Create New Dict For Rooms
-Dictionary<int, Room> rooms = new Dictionary<int, Room>();
+List<Room> roomList = new List<Room>();
 
+List<Stay> stayList = new List<Stay>();
 
 while (true)
 {
+    
     DisplayMenu();
     int option = int.Parse(Console.ReadLine());
     Console.WriteLine();
@@ -47,22 +50,22 @@ while (true)
 
     else if (option == 2)
     {
-        DisplayRoom( rooms);
+        DisplayRoom(roomList);
     }
 
     else if (option == 3)
     {
-        RegisterGuest(guestList);
+       // RegisterGuest(guestList);
     }
 
     else if (option == 4)
     {
-        Checkin(guestList);
+      //  Checkin(guestList);
     }
 
     else if (option == 5)
     {
-        DisplayStayDetails(guestList);
+        DisplayStay(guestList);
     }
 
     else if (option == 6)
@@ -97,23 +100,19 @@ while (true)
 
 void DisplayMonthlyAmount(List<Guest> guestList, object stayList)
 {
-    throw new NotImplementedException();
+    
 }
 
 void CheckOutGuest(List<Guest> guestList)
 {
-    throw new NotImplementedException();
+    
 }
 
 void ExtendStay(List<Guest> guestList)
 {
-    throw new NotImplementedException();
+   
 }
 
-void DisplayStayDetails(List<Guest> guestList)
-{
-    throw new NotImplementedException();
-}
 
 void DisplayMenu()
     {
@@ -140,11 +139,16 @@ void DisplayGuest(List<Guest> guestList)
         guestList.Add(guest);
     }
 
+    Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", "Name", "Passport Number", "Membership Status", "Membership Points");
+    foreach (Guest guest in guestList)
+    {
+        Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", guest.Name, guest.PassportNum, guest.Member.Status, guest.Member.Points);
+    }
+
 }
 
-void DisplayRoom(Dictionary<int, Room> rooms)
+void DisplayRoom(List<Room>roomList)
 {
-
     for (int i = 1; i < rlines.Length; i++)
     {
         string[] rline = rlines[i].Split(',');
@@ -161,18 +165,33 @@ void DisplayRoom(Dictionary<int, Room> rooms)
         {
             room = new DeluxeRoom(roomnumber, bedconfig, dailyRate, true);
         }
-        rooms.Add(roomnumber, room);
-    }
+        roomList.Add(room);
 
+    }
+    Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", "RoomNumber", "BedConfiguration", "DailyRate", "Available");
+
+    
+    foreach (Room r in roomList)
+    {
+        if (r.IsAvail == true)
+        {
+            Console.WriteLine("{0,-10}{1,-20}{2,-20}{3,-20}", r.RoomNumber, r.BedConfiguration, r.DailyRate, r.IsAvail);
+
+            if (r.IsAvail == null)
+            {
+                Console.WriteLine("No rooms available! ");
+            }
+        }
+    }
 }
-void DisplayStay(string name, string passportnum, Stay stay)
+void DisplayStay(List<Guest>guestList)
 {
 
     for (int i = 1; i < slines.Length; i++)
     {
         string[] sline = slines[i].Split(',');
-        name = sline[0];
-        passportnum = sline[1];
+        string name = sline[0];
+        string passportnum = sline[1];
         bool ischeckedin = bool.Parse(sline[2]);
         DateTime checkindate = DateTime.Parse(sline[3]);
         DateTime checkoutdate = DateTime.Parse(sline[4]);
@@ -218,62 +237,18 @@ void DisplayStay(string name, string passportnum, Stay stay)
             bool extrabed2 = bool.Parse(sline[12]);
         }
 
-        stay = new Stay(checkindate, checkoutdate);
-        Room room = rooms[int.Parse(roomnum)];
+        Stay stay = new Stay(checkindate, checkoutdate);
+        Room room = roomList[int.Parse(roomnum)];
         room.IsAvail = false;
         stay.AddRoom(room);
         if (roomnum2.Length > 0)
         {
-            Room room2 = rooms[int.Parse(roomnum2)];
+            Room room2 = roomList[int.Parse(roomnum2)];
             room2.IsAvail = false;
             stay.AddRoom(room2);
         }
     }
-
-    foreach (Guest guest in guestList)
-    {
-        if (guest.Name == name && guest.PassportNum == passportnum)
-        {
-            guest.HotelStay = stay;
-        }
-    }
 }
-
-
-// Method To Display Guests
-void DisplayGuests(List<Guest>guestList)
-{
-    foreach (Guest guest in guestList)
-    {
-        Console.WriteLine(guest + "\n");
-    }
-
-    Console.WriteLine("\n");
-}
-
-
-Console.WriteLine("\n");
-
-// Method To Display Rooms
-void DisplayRooms(Dictionary<int, Room> rooms)
-{
-    for (int i = 0; i < rooms.Count; i++)
-    {
-        Console.WriteLine(rooms.Keys.ElementAt(1));
-    }
-
-    Console.WriteLine("\n");
-}
-
-
-
-/*
-  create a guest object with the information given
- create membership object
- assign membership object to the guest
- add the guest object to the guest list
- append the guest information to the guest.csv file
- display a message to indicate registration status*/
 
 // Option 3
 void RegisterGuest(List<Guest> guestList)
@@ -301,76 +276,67 @@ void RegisterGuest(List<Guest> guestList)
             
 
 void Checkin(List<Guest> guestList)
-{
-    for (int i = 0; i < glines.Length; i++)
     {
-        // To Get Each Line
-        string[] gline = glines[i].Split(',');
-
-        // To Get The Lines After The Header
-        if (i != 0 && i < 8)
+        for (int i = 0; i < glines.Length; i++)
         {
-            // Display The Names Of The Guests
-            Console.WriteLine(gline[0]);
+            // To Get Each Line
+            string[] gline = glines[i].Split(',');
+
+            // To Get The Lines After The Header
+            if (i != 0 && i < 8)
+            {
+                // Display The Names Of The Guests
+                Console.WriteLine(gline[0]);
+            }
+        }
+
+        // Prompt User To Select A Guest
+        Console.Write("Select A Guest: ");
+        string guest = Console.ReadLine();
+
+        // Retrieve Selected Guest
+
+        // Prompt User For Check In Date
+        Console.Write("Enter Your Check In Date: ");
+        string checkin = Console.ReadLine();
+
+        // Prompt User For Check Out Date
+        Console.Write("Enter Your Check Out Date: ");
+        string checkout = Console.ReadLine();
+
+        // Create Stay Object
+
+        // List Available Rooms
+
+        // Prompt User To Select A Room
+        Console.Write("Please Select A Room(Room Number): ");
+        int room = Convert.ToInt32(Console.ReadLine());
+
+        // Retrieve Selected Room
+
+        // Response For Standard Room
+        if (room == 101 && room == 102 && room == 201 && room == 202 && room == 301 && room == 302)
+        {
+            Console.Write("Do You Require Wi-Fi And BreakFast? ");
+        }
+
+        // Response For Deluxe Room
+        if (room == 204 && room == 205 && room == 303 && room == 304)
+        {
+            Console.Write("Do You Require An Additional Bed? ");
+        }
+
+        // Validations For Room Input
+        else
+        {
+            Console.Write("Please Enter A Valid Number!");
         }
     }
 
-    // Prompt User To Select A Guest
-    Console.Write("Select A Guest: ");
-    string guest = Console.ReadLine();
-
-    // Retrieve Selected Guest
-
-    // Prompt User For Check In Date
-    Console.Write("Enter Your Check In Date: ");
-    string checkin = Console.ReadLine();
-
-    // Prompt User For Check Out Date
-    Console.Write("Enter Your Check Out Date: ");
-    string checkout = Console.ReadLine();
-
-    // Create Stay Object
-
-    // List Available Rooms
-
-    // Prompt User To Select A Room
-    Console.Write("Please Select A Room(Room Number): ");
-    int room = Convert.ToInt32(Console.ReadLine());
-
-    // Retrieve Selected Room
-
-    // Response For Standard Room
-    if (room == 101 && room == 102 && room == 201 && room == 202 && room == 301 && room == 302)
-    {
-        Console.Write("Do You Require Wi-Fi And BreakFast? ");
-    }
-
-    // Response For Deluxe Room
-    if (room == 204 && room == 205 && room == 303 && room == 304)
-    {
-        Console.Write("Do You Require An Additional Bed? ");
-    }
-
-    // Validations For Room Input
-    else
-    {
-        Console.Write("Please Enter A Valid Number!");
-    }
-
-    // not sure how to do after this
-}
+        // not sure how to do after this
+    
+    
 
            
 
-            /*
-             List the guests
- prompt user to select a guest and retrieve the selected guest
- retrieve the stay object of the guest
- display all the details of the stay including check in date, check out date and all rooms details 
-that he/she has checked in
-        }*/
-        
-
-    // Validation For Option Input
-    
     
